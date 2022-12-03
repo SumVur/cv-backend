@@ -8,6 +8,8 @@
     "module": "commonjs",
     "rootDir": "src",
     "outDir": "dist",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "removeComments": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
