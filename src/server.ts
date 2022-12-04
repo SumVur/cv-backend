@@ -1,3 +1,4 @@
+import "reflect-metadata"
 import {ApolloServer} from '@apollo/server';
 import {expressMiddleware} from '@apollo/server/express4';
 import {ApolloServerPluginDrainHttpServer} from '@apollo/server/plugin/drainHttpServer';
@@ -5,20 +6,25 @@ import express from 'express';
 import http from 'http';
 import {json} from 'body-parser';
 import cors from 'cors';
-import {resolvers, typeDefs} from "./graphql";
+import {buildSchema} from "type-graphql";
+import {SkillsResolver} from "./graphql";
 
 interface MyContext {
     token?: String;
 }
 
 async function startApolloServer() {
+    const schema = await buildSchema({
+        resolvers: [SkillsResolver],
+        emitSchemaFile: true,
+    })
+
     const PORT = process.env.PORT || 4000;
 
     const app = express();
     const httpServer = http.createServer(app);
     const server = new ApolloServer<MyContext>({
-        typeDefs,
-        resolvers,
+        schema,
         plugins: [ApolloServerPluginDrainHttpServer({httpServer})],
     });
 
