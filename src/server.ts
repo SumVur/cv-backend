@@ -6,18 +6,14 @@ import express from 'express';
 import http from 'http';
 import {json} from 'body-parser';
 import cors from 'cors';
-import {buildSchema} from "type-graphql";
-import {SkillsResolver} from "./graphql";
+import {getSchema} from "./graphql";
 
 interface MyContext {
     token?: String;
 }
 
 async function startApolloServer() {
-    const schema = await buildSchema({
-        resolvers: [SkillsResolver],
-        emitSchemaFile: true,
-    })
+    const schema = await getSchema();
 
     const PORT = process.env.PORT || 4000;
 
@@ -35,7 +31,7 @@ async function startApolloServer() {
         cors<cors.CorsRequest>(),
         json(),
         expressMiddleware(server, {
-            context: async ({req}) => ({token: req.headers.token}),
+            context: async ({req}) => ({token: req.headers.authorization || ''}),
         }),
     );
 

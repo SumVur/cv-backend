@@ -11,8 +11,8 @@ export class SkillsResolver {
         this.resource = new SkillResource();
     }
 
-    @Query(() => [Skill])
-    async getSkills(): Promise<Skill[]> {
+    @Query(() => [Skill], {nullable: true})
+    async getSkills(): Promise<Skill[] | null> {
         const data = await this.resource.getAllItems();
 
         return data.map((item) => {
@@ -39,8 +39,8 @@ export class SkillsResolver {
     }
 
 
-    @Mutation(() => Boolean)
-    async createSkill(@Arg("input") input: SkillInput): Promise<boolean> {
+    @Mutation(() => Boolean, {nullable: true})
+    async createSkill(@Arg("input") input: SkillInput): Promise<boolean | null> {
         return await this.resource.save({id: 0, title: input.title, link: input.link})
     }
 }
