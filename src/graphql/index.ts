@@ -1,11 +1,12 @@
 import {buildSchema, MiddlewareFn} from "type-graphql";
 import {SkillsResolver} from "./skills";
+import {SkillsDivisionsResolver} from "./SkillsDivisions";
 
 export * from "./skills"
 
 export async function getSchema() {
     return await buildSchema({
-        resolvers: [SkillsResolver],
+        resolvers: [SkillsResolver,SkillsDivisionsResolver],
         emitSchemaFile: true,
         globalMiddlewares: [Accessing]
     })
