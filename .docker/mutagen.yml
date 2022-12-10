@@ -1,0 +1,44 @@
+# Set up the Docker Compose services before creating sessions.
+beforeCreate:
+  - docker-compose build --no-cache
+  - docker-compose up --detach
+
+# Stop the Docker Compose services after terminating sessions.
+afterTerminate:
+  - docker-compose stop
+
+# Define common utility commands.
+commands:
+  setup: >
+    docker-compose exec redis redis-cli FLUSHALL;
+  flushall: >
+    docker-compose exec redis redis-cli FLUSHALL;
+
+sync:
+  defaults:
+    mode: "two-way-resolved"
+    stageMode: "neighboring"
+    maxStagingFileSize: "100 MB"
+    symlink:
+      mode: "posix-raw"
+    ignore:
+      vcs: true
+      paths:
+        # System files
+        - ".DS_Store"
+        - "._*"
+        # Vim files
+        - "*~"
+        - "*.sw[a-p]"
+        # IDE files
+        - ".idea/"
+        # Magento files
+        - "/.docker/"
+        - "/.github/"
+        - "node_modules/"
+    permissions:
+      defaultFileMode: "0644"
+      defaultDirectoryMode: "0755"
+  cv-backend:
+    alpha: "../"
+    beta: "docker://cv-backend-backend-1/usr/src/app"
