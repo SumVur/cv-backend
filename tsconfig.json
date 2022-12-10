@@ -1,10 +1,18 @@
 {
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
+  "include": ["./src"],
   "compilerOptions": {
-    "target": "es2016",
+    "baseUrl": "./",
     "paths": {
-      "helper": ["./src/helper"],
-      "Model/*": ["./src/Model/*"]
+      "@helpers": ["src/helpers"],
+      "@Model/*": ["src/Model/*"],
+      "@api": ["src/Model/api"]
     },
+    "types": ["node"],
+    "moduleResolution": "node",
+    "target": "es2016",
     "lib": ["dom", "es6"],
     "module": "commonjs",
     "rootDir": "src",

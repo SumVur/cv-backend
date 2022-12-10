@@ -1,5 +1,5 @@
 import { SkillsDivisionsRepositoryInterface } from "./repository";
-import { ModelInterface, redisGetOrSave, RepositoryInterface } from "../api";
+import { ModelInterface, redisGetOrSave, RepositoryInterface } from "@api";
 
 export type SkillsDivisionsInterface = SkillsDivisionsRepositoryInterface;
 

@@ -1,4 +1,4 @@
-import { CollectionInterface, RepositoryInterface } from "../api";
+import { CollectionInterface, RepositoryInterface } from "@api";
 import { SkillInterface } from "./model";
 
 export class SkillsCollection implements CollectionInterface<SkillInterface> {

@@ -1,4 +1,4 @@
-import { CollectionInterface, ModelInterface, ResourceInterface } from "../api";
+import { CollectionInterface, ModelInterface, ResourceInterface } from "@api";
 import { SkillInterface, SkillModel } from "./model";
 import { SkillsCollection } from "./collection";
 import { SkillRepository } from "./repository";

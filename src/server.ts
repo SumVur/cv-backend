@@ -7,7 +7,7 @@ import http from "http";
 import { json } from "body-parser";
 import cors from "cors";
 import { getSchema } from "./graphql";
-import redis from "./helper";
+import redis from "@helpers";
 
 interface MyContext {
   token?: string;

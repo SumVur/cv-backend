@@ -2,7 +2,7 @@ import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import {
   SkillsDivisionsResource,
   SkillsDivisionsResourceInterface,
-} from "Model/SkillsDivisions";
+} from "@Model/SkillsDivisions";
 import {
   SkillsDivisions,
   SkillsDivisionsInput,

@@ -1,4 +1,4 @@
-import { CollectionInterface, RepositoryInterface } from "../api";
+import { CollectionInterface, redisGetOrSave, RepositoryInterface } from "@api";
 import { SkillsDivisionsInterface } from "./model";
 
 export class SkillsDivisionCollection
@@ -10,6 +10,8 @@ export class SkillsDivisionCollection
   ) {}
 
   async getAllItems(): Promise<SkillsDivisionsInterface[]> {
-    return this.SkillRepository.getAll();
+    return redisGetOrSave(this.key, () => {
+      return this.SkillRepository.getAll();
+    });
   }
 }
