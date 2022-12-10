@@ -1,13 +1,14 @@
-import {ModelInterface} from "./modelInterface";
-import {CollectionInterface} from "./collectionInterface";
+import { ModelInterface } from "./modelInterface";
+import { CollectionInterface } from "./collectionInterface";
 import redis from "../../helper";
 
-export * from "./repositoryInterface"
-export * from "./modelInterface"
-export * from "./collectionInterface"
+export * from "./repositoryInterface";
+export * from "./modelInterface";
+export * from "./collectionInterface";
 
-export interface ResourceInterface<T> extends ModelInterface<T>, CollectionInterface<T> {
-}
+export interface ResourceInterface<T>
+  extends ModelInterface<T>,
+    CollectionInterface<T> {}
 
 export async function redisGetOrSave(key: string, fetcher: () => Promise<any>) {
   const data = await redis.get(key);

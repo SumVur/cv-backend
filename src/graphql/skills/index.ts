@@ -1,1 +1,1 @@
-export * from "./skills.resolvers"
+export * from "./skills.resolvers";

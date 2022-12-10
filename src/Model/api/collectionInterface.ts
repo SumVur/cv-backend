@@ -1,3 +1,3 @@
 export interface CollectionInterface<T> {
-    getAllItems: () => Promise<T[]>
+  getAllItems: () => Promise<T[]>;
 }
