@@ -1,10 +1,11 @@
 import { Skill, SkillInput } from "./skills.schema";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
-import { SkillResource, SkillResourceInterface } from "@Model/skill";
+import { SkillInterface, SkillResource } from "@Model/Skill";
+import { AbstractResource } from "@api";
 
 @Resolver(() => Skill)
 export class SkillsResolver {
-  private resource: SkillResourceInterface;
+  private resource: AbstractResource<SkillInterface>;
 
   constructor() {
     this.resource = new SkillResource();
