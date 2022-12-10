@@ -1,5 +1,5 @@
 import { RepositoryInterface } from "@api";
-import { SkillRepositoryInterface } from "../skill/repository";
+import { SkillRepositoryInterface } from "../Skill/repository";
 import { supabase } from "@helpers";
 
 export interface SkillsDivisionsRepositoryInterface {

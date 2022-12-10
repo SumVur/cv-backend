@@ -1,16 +1,17 @@
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import {
+  SkillsDivisionsInterface,
   SkillsDivisionsResource,
-  SkillsDivisionsResourceInterface,
 } from "@Model/SkillsDivisions";
 import {
   SkillsDivisions,
   SkillsDivisionsInput,
 } from "./SkillsDivisions.schema";
+import { AbstractResource } from "@api";
 
 @Resolver(() => SkillsDivisions)
 export class SkillsDivisionsResolver {
-  private resource: SkillsDivisionsResourceInterface;
+  private resource: AbstractResource<SkillsDivisionsInterface>;
 
   constructor() {
     this.resource = new SkillsDivisionsResource();
