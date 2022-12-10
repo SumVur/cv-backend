@@ -1,6 +1,6 @@
 import { RepositoryInterface } from "../api";
 import { SkillRepositoryInterface } from "../skill/repository";
-import { supabase } from "../../helper";
+import { supabase } from "helper";
 
 export interface SkillsDivisionsRepositoryInterface {
   id: number;
