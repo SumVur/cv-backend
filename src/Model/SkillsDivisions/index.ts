@@ -1,4 +1,4 @@
-import { AbstractResource } from "@api";
+import { AbstractResource } from "../api";
 import { SkillsDivisionsInterface, SkillsDivisionsModel } from "./model";
 import { SkillsDivisionCollection } from "./collection";
 import { SkillsDivisionsRepository } from "./repository";

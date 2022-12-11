@@ -7,7 +7,7 @@ import http from "http";
 import { json } from "body-parser";
 import cors from "cors";
 import { getSchema } from "./graphql";
-import redis from "@helpers";
+import redis from "./helpers";
 
 interface MyContext {
   token?: string;
@@ -39,7 +39,11 @@ async function startApolloServer() {
   await new Promise<void>((resolve) =>
     httpServer.listen({ port: PORT }, resolve)
   );
-  await redis.connect();
+  try {
+    await redis.connect();
+  }catch (e) {
+    console.log(e)
+  }
   console.log(`🚀 Server ready at http://localhost:4000/graphql`);
 }
 

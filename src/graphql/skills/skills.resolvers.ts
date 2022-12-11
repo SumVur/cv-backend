@@ -1,7 +1,7 @@
 import { Skill, SkillInput } from "./skills.schema";
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
-import { SkillInterface, SkillResource } from "@Model/Skill";
-import { AbstractResource } from "@api";
+import { SkillInterface, SkillResource } from "../../Model/Skill";
+import { AbstractResource } from "../../Model/api";
 
 @Resolver(() => Skill)
 export class SkillsResolver {

@@ -1,4 +1,4 @@
-import { AbstractCollection, RepositoryInterface } from "@api";
+import { AbstractCollection, RepositoryInterface } from "../api";
 import { SkillsDivisionsInterface } from "./model";
 
 export class SkillsDivisionCollection extends AbstractCollection<SkillsDivisionsInterface> {

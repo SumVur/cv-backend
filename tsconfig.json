@@ -1,15 +1,6 @@
 {
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  },
   "include": ["./src"],
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@helpers": ["src/helpers"],
-      "@Model/*": ["src/Model/*"],
-      "@api": ["src/Model/api"]
-    },
     "types": ["node"],
     "moduleResolution": "node",
     "target": "es2016",

@@ -1,5 +1,5 @@
 import { SkillRepositoryInterface } from "./repository";
-import { AbstractModel, RepositoryInterface } from "@api";
+import { AbstractModel, RepositoryInterface } from "../api";
 
 export type SkillInterface = SkillRepositoryInterface;
 

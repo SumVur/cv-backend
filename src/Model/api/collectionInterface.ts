@@ -1,5 +1,5 @@
-import { RepositoryInterface } from "@Model/api/index";
 import {AbstractItem} from "./abstractItem";
+import {RepositoryInterface} from "./repositoryInterface";
 
 export interface CollectionInterface<T> {
   getAllItems: () => Promise<T[]>;

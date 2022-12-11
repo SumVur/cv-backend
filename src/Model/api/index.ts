@@ -1,6 +1,6 @@
 import { AbstractModel, ModelInterface } from "./modelInterface";
 import { AbstractCollection, CollectionInterface } from "./collectionInterface";
-import redis from "@helpers";
+import redis from "../../helpers";
 
 export * from "./repositoryInterface";
 export * from "./modelInterface";

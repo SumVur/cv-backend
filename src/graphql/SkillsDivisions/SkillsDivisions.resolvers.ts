@@ -2,12 +2,12 @@ import { Arg, Mutation, Query, Resolver } from "type-graphql";
 import {
   SkillsDivisionsInterface,
   SkillsDivisionsResource,
-} from "@Model/SkillsDivisions";
+} from "../../Model/SkillsDivisions";
 import {
   SkillsDivisions,
   SkillsDivisionsInput,
 } from "./SkillsDivisions.schema";
-import { AbstractResource } from "@api";
+import {AbstractResource} from "../../Model/api";
 
 @Resolver(() => SkillsDivisions)
 export class SkillsDivisionsResolver {
