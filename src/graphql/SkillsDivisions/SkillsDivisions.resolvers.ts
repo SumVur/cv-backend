@@ -4,12 +4,12 @@ import {
   SkillsDivisionsResource,
 } from "../../Model/SkillsDivisions";
 import {
-  SkillsDivisions,
-  SkillsDivisionsInput,
+  SkillsDivision,
+  SkillsDivisionInput,
 } from "./SkillsDivisions.schema";
 import {AbstractResource} from "../../Model/api";
 
-@Resolver(() => SkillsDivisions)
+@Resolver(() => SkillsDivision)
 export class SkillsDivisionsResolver {
   private resource: AbstractResource<SkillsDivisionsInterface>;
 
@@ -17,12 +17,12 @@ export class SkillsDivisionsResolver {
     this.resource = new SkillsDivisionsResource();
   }
 
-  @Query(() => [SkillsDivisions], { nullable: true })
-  async getSkillsDivisions(): Promise<SkillsDivisions[] | null> {
+  @Query(() => [SkillsDivision], { nullable: true })
+  async getSkillsDivisions(): Promise<SkillsDivision[] | null> {
     const data = await this.resource.getAllItems();
 
     return data.map((item) => {
-      const skill: SkillsDivisions = {
+      const skill: SkillsDivision = {
         id: item.id,
         title: item.title,
         skills: item.skills,
@@ -31,10 +31,10 @@ export class SkillsDivisionsResolver {
     });
   }
 
-  @Query(() => SkillsDivisions, { nullable: true })
+  @Query(() => SkillsDivision, { nullable: true })
   async getSkillsDivision(
     @Arg("id") id: number
-  ): Promise<SkillsDivisions | null> {
+  ): Promise<SkillsDivision | null> {
     const data = await this.resource.getById(`${id}`);
 
     if (data) {
@@ -49,7 +49,7 @@ export class SkillsDivisionsResolver {
 
   @Mutation(() => Boolean, { nullable: true })
   async createSkillsDivision(
-    @Arg("input") input: SkillsDivisionsInput
+    @Arg("input") input: SkillsDivisionInput
   ): Promise<boolean | null> {
     return await this.resource.save({ id: 0, title: input.title, skills: [] });
   }

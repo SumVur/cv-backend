@@ -2,7 +2,7 @@ import { Field, InputType, ObjectType } from "type-graphql";
 import { Skill } from "../skills/skills.schema";
 
 @ObjectType()
-export class SkillsDivisions {
+export class SkillsDivision {
   @Field()
   id!: number;
 
@@ -14,7 +14,7 @@ export class SkillsDivisions {
 }
 
 @InputType()
-export class SkillsDivisionsInput implements Pick<SkillsDivisions, "title"> {
+export class SkillsDivisionInput implements Pick<SkillsDivision, "title"> {
   @Field()
   title!: string;
 }
