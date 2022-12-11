@@ -22,6 +22,7 @@ async function startApolloServer() {
   const httpServer = http.createServer(app);
   const server = new ApolloServer<MyContext>({
     schema,
+    introspection: true,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
 
